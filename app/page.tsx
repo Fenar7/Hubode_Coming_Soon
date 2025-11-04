@@ -1,10 +1,35 @@
 'use client';
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./style.css";
 
 export default function Home() {
   const mascotVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const video = mascotVideoRef.current;
+    if (!video) return;
+
+    const attemptPlay = () => {
+      video.muted = true;
+      video.playsInline = true;
+      void video.play().catch(() => {});
+    };
+
+    if (video.readyState >= 2) {
+      attemptPlay();
+    } else {
+      const handleCanPlay = () => {
+        video.removeEventListener("canplay", handleCanPlay);
+        attemptPlay();
+      };
+
+      video.addEventListener("canplay", handleCanPlay);
+      return () => {
+        video.removeEventListener("canplay", handleCanPlay);
+      };
+    }
+  }, []);
 
   const handleVideoEnded = () => {
     const video = mascotVideoRef.current;
