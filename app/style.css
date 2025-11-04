@@ -1,5 +1,5 @@
 :root {
-  --surface: #004137;
+  --surface: #004136;
   --accent-pink: #EDD3E3;
   --text-medium: #CACECF;
   --text-white: #FFFFFF;
@@ -34,16 +34,18 @@ body {
 }
 
 .home-page {
-  min-height: 100vh;
+  --vertical-padding: clamp(1.1rem, 4vw, 2.75rem);
+  height: 100vh;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: clamp(1.1rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 3rem);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  padding-top: calc(var(--vertical-padding) + max(env(safe-area-inset-top, 0), env(safe-area-inset-bottom, 0)));
+  padding-bottom: calc(var(--vertical-padding) + max(env(safe-area-inset-top, 0), env(safe-area-inset-bottom, 0)));
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
   background-color: var(--surface);
   text-align: center;
-  gap: clamp(2rem, 5vh, 3.5rem);
+  row-gap: clamp(2rem, 5vh, 3.5rem);
 }
 
 .home-header,
@@ -59,14 +61,12 @@ body {
 }
 
 .home-content {
-  flex: 1;
   width: min(540px, 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0;
-  margin-inline: auto;
 }
 
 .mascot-wrapper {
@@ -137,8 +137,9 @@ body {
 
 @media (max-width: 600px) {
   .home-page {
-    padding: clamp(2rem, 12vw, 3rem) clamp(1.25rem, 6vw, 2rem);
-    gap: clamp(1.25rem, 5vh, 2.25rem);
+    --vertical-padding: clamp(1.75rem, 10vw, 2.5rem);
+    padding-inline: clamp(1.25rem, 6vw, 2rem);
+    row-gap: clamp(1.25rem, 5vh, 2.25rem);
   }
   .home-logo {
     width: clamp(8.5rem, 40vw, 10rem);

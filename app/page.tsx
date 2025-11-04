@@ -55,11 +55,13 @@ export default function Home() {
           <video
             ref={mascotVideoRef}
             className="mascot-video"
-            src="/mascot-support.mp4"
-            autoPlay
             muted
+            autoPlay
             playsInline
             defaultMuted
+            disablePictureInPicture
+            controls={false}
+            controlsList="nodownload nofullscreen noremoteplayback"
             preload="auto"
             onEnded={handleVideoEnded}
             onLoadedData={() => {
@@ -69,13 +71,14 @@ export default function Home() {
               videoEl.defaultMuted = true;
               videoEl.volume = 0;
             }}
-          />
+          >
+            <source src="/mascot-support.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <h1 className="home-title">
-          <span className="title-highlight">Co</span>
-          <span className="title-default">mplete</span>{" "}
-          <span className="title-highlight">Living</span>
+          <span className="title-highlight">Complete</span>{" "}
+          <span className="title-default">living</span>
         </h1>
 
         <p className="home-subtitle">Begins Soon</p>
