@@ -12,7 +12,12 @@ export default function Home() {
 
     const attemptPlay = () => {
       video.muted = true;
+      video.defaultMuted = true;
+      video.volume = 0;
       video.playsInline = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
       void video.play().catch(() => {});
     };
 
@@ -54,8 +59,16 @@ export default function Home() {
             autoPlay
             muted
             playsInline
+            defaultMuted
             preload="auto"
             onEnded={handleVideoEnded}
+            onLoadedData={() => {
+              const videoEl = mascotVideoRef.current;
+              if (!videoEl) return;
+              videoEl.muted = true;
+              videoEl.defaultMuted = true;
+              videoEl.volume = 0;
+            }}
           />
         </div>
 
