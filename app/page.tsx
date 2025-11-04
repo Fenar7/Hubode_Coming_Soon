@@ -58,7 +58,6 @@ export default function Home() {
             muted
             autoPlay
             playsInline
-            defaultMuted
             disablePictureInPicture
             controls={false}
             controlsList="nodownload nofullscreen noremoteplayback"
