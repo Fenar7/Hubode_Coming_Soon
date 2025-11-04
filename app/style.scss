@@ -42,16 +42,16 @@ body {
 }
 
 .home-page {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: clamp(1.1rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 3rem);
-  background-color: var(--surface);
-  text-align: center;
-  gap: clamp(2rem, 5vh, 3.5rem);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(1.1rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 3rem);
+    background-color: var(--surface);
+    text-align: center;
+    gap: clamp(2rem, 5vh, 3.5rem);
 }
 
 .home-header,
@@ -62,33 +62,33 @@ body {
 }
 
 .home-logo {
-  width: clamp(7.5rem, 19vw, 11rem);
-  height: auto;
+    width: clamp(7.5rem, 19vw, 11rem);
+    height: auto;
 }
 
 .home-content {
-  flex: 1;
-  width: min(540px, 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  margin-inline: auto;
+    flex: 1;
+    width: min(540px, 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-inline: auto;
 }
 
 .mascot-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
 }
 
 .mascot-video {
-  width: clamp(180px, 40vw, 260px);
-  max-width: 100%;
-  height: auto;
-  display: block;
+    width: clamp(180px, 40vw, 260px);
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .home-title {
@@ -108,14 +108,14 @@ body {
 }
 
 .home-subtitle {
-  margin: 0;
-  color: var(--text-medium);
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  font-weight: 400;
+    margin: 0;
+    color: var(--text-medium);
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-weight: 400;
 }
 
 .home-footer {
-  padding-bottom: 0;
+    padding-bottom: 0;
 }
 
 .social-links {
@@ -133,9 +133,9 @@ body {
 }
 
 .social-link img {
-  width: clamp(22px, 5vw, 28px);
-  height: auto;
-  display: block;
+    width: clamp(22px, 5vw, 28px);
+    height: auto;
+    display: block;
 }
 
 .social-link:focus-visible,
