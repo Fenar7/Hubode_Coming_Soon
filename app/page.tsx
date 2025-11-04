@@ -1,49 +1,6 @@
-'use client';
-
-import { useEffect, useRef } from "react";
 import "./style.css";
 
 export default function Home() {
-  const mascotVideoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    const video = mascotVideoRef.current;
-    if (!video) return;
-
-    const attemptPlay = () => {
-      video.muted = true;
-      video.defaultMuted = true;
-      video.volume = 0;
-      video.playsInline = true;
-      video.setAttribute("muted", "");
-      video.setAttribute("playsinline", "");
-      video.setAttribute("webkit-playsinline", "");
-      void video.play().catch(() => {});
-    };
-
-    if (video.readyState >= 2) {
-      attemptPlay();
-    } else {
-      const handleCanPlay = () => {
-        video.removeEventListener("canplay", handleCanPlay);
-        attemptPlay();
-      };
-
-      video.addEventListener("canplay", handleCanPlay);
-      return () => {
-        video.removeEventListener("canplay", handleCanPlay);
-      };
-    }
-  }, []);
-
-  const handleVideoEnded = () => {
-    const video = mascotVideoRef.current;
-    if (!video) return;
-
-    video.pause();
-    video.currentTime = video.duration;
-  };
-
   return (
     <div className="home-page">
       <header className="home-header">
@@ -52,27 +9,11 @@ export default function Home() {
 
       <main className="home-content">
         <div className="mascot-wrapper">
-          <video
-            ref={mascotVideoRef}
-            className="mascot-video"
-            muted
-            autoPlay
-            playsInline
-            disablePictureInPicture
-            controls={false}
-            controlsList="nodownload nofullscreen noremoteplayback"
-            preload="auto"
-            onEnded={handleVideoEnded}
-            onLoadedData={() => {
-              const videoEl = mascotVideoRef.current;
-              if (!videoEl) return;
-              videoEl.muted = true;
-              videoEl.defaultMuted = true;
-              videoEl.volume = 0;
-            }}
-          >
-            <source src="/mascot-support.mp4" type="video/mp4" />
-          </video>
+          <img
+            src="/mascot-support.gif"
+            alt="Hubode mascot animation"
+            className="mascot-visual"
+          />
         </div>
 
         <h1 className="home-title">
